@@ -28,6 +28,7 @@ class Coordinate(object):
         self.x_scale = self.pixel_width / (self.end_date - self.begin_date)
         self.y_scale = self.pixel_height / (self.value_high - self.value_low)
 
+    # 将数据转化为实际坐标系中的数据，并更新坐标系参数
     def transform(self, values):
         self.update(values)
         coord_values = []
@@ -41,7 +42,9 @@ class Coordinate(object):
         return coord_values
 
 
+# KLine数据集合
 class Kline(object):
+    # Kline数据项，单个
     class Item(object):
         def __init__(self, date, high, open, close, low):
             self.date = date
